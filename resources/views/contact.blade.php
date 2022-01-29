@@ -23,7 +23,7 @@
 
                 @if (session('success'))
                     <div class="alert alert-success" role="alert">
-                    {{session('success')}}
+                    {{__('Your message was sent')}}
                     </div>
                 @endif
 
@@ -93,9 +93,11 @@
                         <br />
                         
                         <!-- Submit Button-->
-                        <button class="btn btn-primary text-uppercase" id="submitButton" type="submit">
+                        <div class="d-flex justify-content-center">
+                        <button class="btn btn-primary text-uppercase rounded-5" id="submitButton" type="submit">
                             {{__('Send')}}
                         </button>
+                        </div>
                     </form>
                 </div>
             </div>
