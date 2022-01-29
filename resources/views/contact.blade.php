@@ -2,13 +2,13 @@
 
 @section('content')
 <!-- Page Header-->
-<header class="masthead" style="background-image: url('{{asset('layout_aluguei/assets/img/contact-bg.jpg')}}')">
+<header class="masthead" style="background-image: url('{{asset('layout_aluguei/assets/img/contato.jpg')}}')">
     <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-md-10 col-lg-8 col-xl-7">
+            <div class="col-md-10 col-lg-10 col-xl-12">
                 <div class="page-heading">
-                    <h1>Contact Me</h1>
-                    <span class="subheading">Have questions? I have answers.</span>
+                    <h1>{{__("Contact Us")}}</h1>
+                    <span class="subheading">{{__("Have questions? I have answers!")}}</span>
                 </div>
             </div>
         </div>
@@ -45,19 +45,18 @@
                             @enderror
                         </div>
 
-
-
                         <div class="form-floating">
                             <input class="form-control @error('email') is-invalid @enderror" 
                                     name="email" id="email" 
                                     value="{{ old('email') }}"
                                     type="email" placeholder=" " />
-                            <label for="email">{{__('Email address')}}</label>
+                            <label for="email">{{__('E-Mail Address')}}</label>
 
                             @error('email')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
+
                         <div class="form-floating">
                             <input class="form-control phone @error('phone') is-invalid @enderror" 
                                     name="phone" id="phone" 
@@ -69,6 +68,7 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
+
                         <div class="form-floating">
                             <input class="form-control @error('subject') is-invalid @enderror" 
                                     name="subject" id="subject" 

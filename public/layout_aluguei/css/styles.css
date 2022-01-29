@@ -82,7 +82,7 @@ body {
   font-size: var(--bs-body-font-size);
   font-weight: var(--bs-body-font-weight);
   line-height: var(--bs-body-line-height);
-  color: var(--bs-body-color);
+  color: white;
   text-align: var(--bs-body-text-align);
   background-color: var(--bs-body-bg);
   -webkit-text-size-adjust: 100%;
@@ -2191,8 +2191,8 @@ progress {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
-  background-color: #fff;
+  color: #ffffff;
+  background-color: rgb(0, 0, 0);
   background-clip: padding-box;
   border: 1px solid #ced4da;
   -webkit-appearance: none;
@@ -2213,17 +2213,17 @@ progress {
   cursor: pointer;
 }
 .form-control:focus {
-  color: #212529;
-  background-color: #fff;
-  border-color: #80c2d0;
+  color: white;
+  background-color: rgb(0, 0, 0);
+  border-color: #000000;
   outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(0, 133, 161, 0.25);
+  box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.25);
 }
 .form-control::-webkit-date-and-time-value {
   height: 1.5em;
 }
 .form-control::-moz-placeholder {
-  color: #6c757d;
+  color: #ffffff;
   opacity: 1;
 }
 .form-control:-ms-input-placeholder {
@@ -2492,10 +2492,10 @@ textarea.form-control-lg {
 .form-check-input:focus {
   border-color: #80c2d0;
   outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(0, 133, 161, 0.25);
+  box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.25);
 }
 .form-check-input:checked {
-  background-color: #0085A1;
+  background-color: #000000;
   border-color: #0085A1;
 }
 .form-check-input:checked[type=checkbox] {
@@ -2505,7 +2505,7 @@ textarea.form-control-lg {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
 }
 .form-check-input[type=checkbox]:indeterminate {
-  background-color: #0085A1;
+  background-color: #000000;
   border-color: #0085A1;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/%3e%3c/svg%3e");
 }
@@ -11032,7 +11032,7 @@ blockquote {
   box-shadow: none;
 }
 .form-floating label {
-  color: #6c757d;
+  color: white;
 }
 
 #mainNav {
@@ -11066,16 +11066,16 @@ blockquote {
     background: transparent;
   }
   #mainNav .navbar-brand {
-    color: #fff;
+    color: white;
   }
   #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
-    color: rgba(255, 255, 255, 0.8);
+    color: white;
   }
   #mainNav .navbar-nav > li.nav-item > a.nav-link {
-    color: #fff;
+    color: white;
   }
   #mainNav .navbar-nav > li.nav-item > a.nav-link:focus, #mainNav .navbar-nav > li.nav-item > a.nav-link:hover {
-    color: rgba(255, 255, 255, 0.8);
+    color: white;
   }
 }
 @media (min-width: 992px) {
@@ -11089,22 +11089,22 @@ blockquote {
   #mainNav.is-fixed {
     /* when the user scrolls down, we hide the header right above the viewport */
     position: fixed;
-    top: -83px;
+    top: -86px;
     transition: transform 0.2s;
-    border-bottom: 1px solid white;
-    background-color: rgba(255, 255, 255, 0.9);
+    border-bottom: 3px solid white;
+    background-color: black;
   }
   #mainNav.is-fixed .navbar-brand {
-    color: #212529;
+    color: white;
   }
   #mainNav.is-fixed .navbar-brand:focus, #mainNav.is-fixed .navbar-brand:hover {
-    color: #0085A1;
+    color: --bs-gray;
   }
   #mainNav.is-fixed .navbar-nav > li.nav-item > a {
-    color: #212529;
+    color: white;
   }
   #mainNav.is-fixed .navbar-nav > li.nav-item > a:focus, #mainNav.is-fixed .navbar-nav > li.nav-item > a:hover {
-    color: #0085A1;
+    color: var(--bs-gray);
   }
   #mainNav.is-visible {
     /* if the user changes the scrolling direction, we show the header */
@@ -11116,7 +11116,6 @@ blockquote {
   color: white;
   background-color: black;
 }
-
 
 footer {
   color: white;
@@ -11138,6 +11137,7 @@ header.masthead {
   background-size: cover;
   background-attachment: scroll;
 }
+
 header.masthead:before {
   content: "";
   position: absolute;
