@@ -31,9 +31,9 @@
     "Contact":"Contato",
     "About":"Sobre",
     "Our company was born from a dream and to meet the needs of the Rio Grande do Norte market.": 
-    "Nossa empresa nasceu de um sonho e atender a necessidade do mercado do Rio Grande do Norte.",
-    "Our mission is to provide satisfaction, including conditions accessible to everyone. Visit us!": 
-    "Nossa missão é atender com satisfação, incluindo condições acessíves para todos. Visite-nos!",
+    "Nossa empresa nasceu de um sonho de atender a necessidade do mercado do Rio Grande do Norte.",
+    "Our mission is to satisfy our customer, including making conditions accessible to everyone. Visit us!": 
+    "Nossa missão é satisfazer nosso cliente, incluindo disponibilizar condições acessíves para todos. Visite-nos!",
     "the beginning of everything.": "o inicío de tudo",
     "About our Company": "Sobre nossa Empresa",
     "Have questions? I have answers!": "Tem perguntas? Eu tenho as respostas!",
@@ -45,7 +45,14 @@
     "Your message was sent": "E-mail enviado com sucesso!",
     "Send": "Enviar",
     "Welcome": "Seja bem-vindo",
-    "Dashboard": "Painel"
+    "Dashboard": "Painel",
+    "Send Password Reset Link": "Enviar Link para Recuperar Senha",
+    "Reset Password": "Recuperar Senha",
+    "Confirm Password": "Confirmar Senha",
+    "Rental Cars":"Carros Alugados",
+    "Rent":"Alugar",
+    "Logout": "Sair",
+    "To view": "Visualizar"
 }
    
 

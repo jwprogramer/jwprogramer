@@ -59,11 +59,11 @@
                         @else
                             
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('post.list') }}">{{ __('Posts') }}</a>
+                                <a class="nav-link" href="{{ route('post.list') }}">{{ __('Rent') }}</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('user.list') }}">{{ __('Users') }}</a>
+                                <a class="nav-link" href="{{ route('user.list') }}">{{ __('Rental Cars') }}</a>
                             </li>
                                 
 

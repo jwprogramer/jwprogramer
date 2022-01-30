@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Users') }}</div>
+                <div class="card-header">{{ __('Rental Cars') }}</div>
 
                 <div class="card-body">
                     <form method="GET" action="{{ route('user.list') }}">
@@ -38,11 +38,10 @@
                     <table class="table">
                         <thead>
                           <tr>
-                            <th scope="col">{{__("Edit")}}</th>
+                            <th scope="col"></th>
                             <th scope="col">{{__("Name")}}</th>
                             <th scope="col">{{__("E-mail")}}</th>
-                            <th scope="col">{{__("Posts count")}}</th>
-                            {{--<th scope="col">{{__("Delete")}}</th>--}}
+                            <th scope="col">{{__("Rental Cars")}}</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -50,21 +49,12 @@
                                 <tr>
                                     <td>
                                         <a href="{{route("user.edit",$item)}}" class="btn btn-primary">
-                                            {{ __('Edit') }}
+                                            {{ __('To view') }}
                                         </a>
                                     </td>
                                     <td>{{$item->name}}</td>    
                                     <td>{{$item->email}}</td>    
                                     <td>{{$item->posts->count()}}</td>    
-                                    {{--<td>
-                                        <form action="{{route('user.destroy',$item)}}" method="user">
-                                            @csrf
-                                            @method("DELETE")
-                                            <button class="btn btn-danger" type="button" onclick="confirmDeleteModal(this)"  >
-                                                {{ __('Delete') }}
-                                            </button>
-                                        </form>
-                                    </td>--}}
                                 </tr>
                             @endforeach
 

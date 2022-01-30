@@ -20,7 +20,7 @@
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-10">
                 <p class="text-center">{{__("Our company was born from a dream and to meet the needs of the Rio Grande do Norte market.")}}</p>
-                <p class="text-center">{{__("Our mission is to provide satisfaction, including conditions accessible to everyone. Visit us!")}}</p>
+                <p class="text-center">{{__("Our mission is to satisfy our customer, including making conditions accessible to everyone. Visit us!")}}</p>
             </div>
         </div>
     </div>

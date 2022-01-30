@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Users') }}</div>
+                <div class="card-header">{{ __('Rental Cars') }}</div>
 
                 <div class="card-body">
 
@@ -29,7 +29,7 @@
                                 <input id="name" type="text" 
                                     class="form-control @error('name') is-invalid @enderror" 
                                     name="name" value="{{ old('name', $data->name) }}"  
-                                    autofocus>
+                                    autofocus disabled>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -50,7 +50,7 @@
                             <div class="col-md-6">
                                 <input id="email" type="email" 
                                     class="form-control @error('email') is-invalid @enderror" 
-                                    name="email" value="{{ old('email', $data->email) }}"  >
+                                    name="email" value="{{ old('email', $data->email) }}" disabled>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -61,10 +61,14 @@
                         </div>
 
 
-                        <ol>
+                        <ol class="list-group list-group-flush">
+                                <li class="list-group-item list-group-item-dark text-center" style="font-weight: bold;">    
+                                     Carro &emsp; &emsp; &emsp; | &emsp; &emsp; &emsp; Data do Aluguel
+                                </li>
                             @foreach ($posts as $post)
-                                <li>
-                                    <a href='{{route('post.edit',$post)}}'>{{ $post->subject }}</a>
+                                <li class="list-group-item">
+                                    <a class="list-group-item list-group-item-action text-center" href='{{route('post.edit',$post)}}'>
+                                    {{ $post->subject }} &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; {{ $post->publish_date->format('d-m-Y') }}</a>
                                 </li>
                             @endforeach
                         </ol>
