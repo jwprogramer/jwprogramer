@@ -25,10 +25,6 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Search') }}
                                 </button>
-
-                                {{--<a class='btn btn-secondary' href="{{route('user.create')}}">
-                                    {{__('New user')}}
-                                </a>--}}
                                 
                             </div>
                         </div>

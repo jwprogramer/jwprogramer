@@ -24,9 +24,11 @@ class PostRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'subject' => 'required|max:500',
-            'publish_date' => 'required|date',
-            'text' => 'required|max:8000'
+            'cont' => 'required|max:500',
+            'address' => 'required|max:500',
+            'model' => 'required|max:500',
+            'manuf' => 'required|max:500',
+            'rent_date' => 'required|date'
         ];
 
         #somente obrigatório quando for um novo

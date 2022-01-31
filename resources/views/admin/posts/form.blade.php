@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Posts') }}</div>
+                <div class="card-header text-center">{{ __('Rent') }}</div>
 
                 <div class="card-body">
 
@@ -18,34 +18,20 @@
                     @endif
 
                         @csrf
-
-                        @if ($data->exists)            
-                        <div class="row mb-3">
-                            <label for="subject" class="col-md-4 col-form-label text-md-end">
-                                {{ __('Owner') }}</label>
-                            
-                                <div class="col-md-6">
-                                    <input  class="form-control"
-                                    name="subject" value="{{ $data->user->name }}"
-                                    disabled>
-                                </div>
-                        </div>
-                        @endif
-
-                        
+                              
                         
                         <div class="row mb-3">
-                            <label for="subject" class="col-md-4 col-form-label text-md-end">
-                                {{ __('Subject') }}
+                            <label for="cont" class="col-md-4 col-form-label text-md-end">
+                                {{ __('Contractor') }}
                             </label>
 
                             <div class="col-md-6">
-                                <input id="subject" type="text" 
-                                    class="form-control @error('subject') is-invalid @enderror" 
-                                    name="subject" value="{{ old('subject', $data->subject) }}"  
+                                <input id="cont" type="text" 
+                                    class="form-control @error('cont') is-invalid @enderror" 
+                                    name="cont" value="{{ old('cont', $data->cont) }}"  
                                     autofocus>
 
-                                @error('subject')
+                                @error('cont')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -54,17 +40,65 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="subject2" class="col-md-4 col-form-label text-md-end">
-                                {{ __('Subject 2') }}
+                            <label for="address" class="col-md-4 col-form-label text-md-end">
+                                {{ __('Address') }}
                             </label>
 
                             <div class="col-md-6">
-                                <input id="subject2" type="text" 
-                                    class="form-control @error('subject2') is-invalid @enderror" 
-                                    name="subject2" value="{{ old('subject2', $data->subject2) }}"  
+                                <input id="address" type="text" 
+                                    class="form-control @error('address') is-invalid @enderror" 
+                                    name="address" value="{{ old('address', $data->address) }}"  
                                     autofocus>
 
-                                @error('subject2')
+                                @error('address')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+
+                        <div class="row mb-3">
+                            <label for="model" class="col-md-4 col-form-label text-md-end">
+                                {{ __('Model') }}
+                            </label>
+
+
+                            <div class="col-md-6">
+                                <input id="model" type="text" 
+                                    class="form-control @error('model') is-invalid @enderror" 
+                                    name="model" value="{{ old('model', $data->model) }}"  
+                                    autofocus>
+
+                                @error('model')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="manuf" class="col-md-4 col-form-label text-md-end">
+                                {{ __('Manufacturer') }}
+                            </label>
+
+                            <div class="col-md-6">
+                                <select id="manuf" name="manuf" class="form-select" aria-label="Default select example @error('manuf') is-invalid @enderror">
+                                    <option value="">Selecione uma Opção</option>
+                                    <option {{ ($data->manuf) == 'Chevrolet' ? 'selected' : '' }} value="Chevrolet">Chevrolet</option>
+                                    <option {{ ($data->manuf) == 'Fiat' ? 'selected' : '' }} value="Fiat">Fiat</option>
+                                    <option {{ ($data->manuf) == 'Toyota' ? 'selected' : '' }} value="Toyota">Toyota</option>
+                                    <option {{ ($data->manuf) == 'Hyundai' ? 'selected' : '' }} value="Hyundai">Hyundai</option>
+                                    <option {{ ($data->manuf) == 'Volkswagen' ? 'selected' : '' }} value="Volkswagen">Volkswagen</option>
+                                </select>
+                                {{--<input id="manuf" type="text" 
+                                    class="form-control @error('manuf') is-invalid @enderror" 
+                                    name="manuf" value="{{ old('manuf', $data->manuf) }}"  
+                                    autofocus>--}}
+
+                                @error('manuf')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -75,16 +109,16 @@
 
 
                         <div class="row mb-3">
-                            <label for="publish_date" class="col-md-4 col-form-label text-md-end">
-                                {{ __('Publish date') }}
+                            <label for="rent_date" class="col-md-4 col-form-label text-md-end">
+                                {{ __('Rent date') }}
                             </label>
 
                             <div class="col-md-6">
-                                <input id="publish_date" type="date" 
-                                    class="form-control @error('publish_date') is-invalid @enderror" 
-                                    name="publish_date" value="{{ old('publish_date',$data->publish_date == "" ? "" : $data->publish_date->format('Y-m-d')) }}"  >
+                                <input id="rent_date" type="date" 
+                                    class="form-control @error('rent_date') is-invalid @enderror" 
+                                    name="rent_date" value="{{ old('rent_date',$data->rent_date == "" ? "" : $data->rent_date->format('Y-m-d')) }}"  >
 
-                                @error('publish_date')
+                                @error('rent_date')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -95,7 +129,7 @@
 
                         <div class="row mb-3">
                             <label for="image" class="col-md-4 col-form-label text-md-end">
-                                {{ __('Image') }}
+                                {{ __('Vehicle photo') }}
                             </label>
 
                             <div class="col-md-6">
@@ -117,36 +151,7 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
-                            <label for="slug" class="col-md-4 col-form-label text-md-end">
-                                {{ __('Slug') }}
-                            </label>
-
-                            <div class="col-md-6">
-                                <input id="slug" type="text" 
-                                    class="form-control" 
-                                    value="{{ old('slug', $data->slug) }}" 
-                                    disabled>
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="text" class="col-md-4 col-form-label text-md-end">
-                                {{ __('Text') }}
-                            </label>
-
-                            <div class="col-md-6">
-                                <textarea id="text" type="text" 
-                                    class="form-control @error('text') is-invalid @enderror" 
-                                    name="text" >{{ old('text', $data->text) }}</textarea>
-
-                                @error('text')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+                      
                     </form>
 
 
@@ -157,7 +162,7 @@
                                 </button>
 
                                 <a class='btn btn-secondary' href="{{route('post.create')}}">
-                                    {{__('New post')}}
+                                    {{__('New rent')}}
                                 </a>
 
 

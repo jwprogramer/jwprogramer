@@ -12,36 +12,36 @@ class Post extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        "publish_date",
+        "cont",
+        "address",
+        "model",
+        "manuf",        
+        "rent_date",
         "image",
-        "subject",
-        "subject2",
-        "text",
-        "slug",
         "user_id"
     ];
 
     protected $dates = [
-        "publish_date"
+        "rent_date"
     ];
     
     #mutator
-    public function setSubjectAttribute($subject){
-        $this->attributes["subject"] = $subject;
+    /*public function setContAttribute($cont){
+        #$this->attributes["cont"] = $cont;
 
-        if ($this->slug != "")
-            return;#evitar que seja alterado
+        #if ($this->slug != "")
+           # return;#evitar que seja alterado
 
         $post = Post::withTrashed()
                         ->orderByDesc("id")
-                        ->firstWhere("slug",Str::slug($subject));
+                        ->firstWhere("model",Str::model($cont));
         $id = "";
         if ($post){
             $id = "_".($post->id + 1);
         }
     
-        $this->attributes["slug"] = Str::slug($subject).$id;
-    }
+        $this->attributes["model"] = Str::model($cont).$id;
+    }*/
 
     public function user(){
         return $this->belongsTo(User::class);

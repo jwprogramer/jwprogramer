@@ -12,21 +12,21 @@ class PostController extends Controller
 {
         
     public function list(Request $request){
-        $pagination = Post::orderBy("subject");
+        $pagination = Post::orderBy("cont");
 
         if (isset($request->busca) && $request->busca != "") {
-            $pagination->orWhere("subject","like","%$request->busca%");
-            $pagination->orWhere("text","like","%$request->busca%");
+            $pagination->orWhere("cont","like","%$request->busca%");
+            $pagination->orWhere("model","like","%$request->busca%");
         }
 
-        if (isset($request->subject) && $request->subject != "")
-            $pagination->where("subject","like","%$request->subject%");
+        if (isset($request->cont) && $request->cont != "")
+            $pagination->where("cont","like","%$request->cont%");
 
-        if (isset($request->text) && $request->text != "")
-            $pagination->where("text","like","%$request->text%");
+        if (isset($request->modal) && $request->modal != "")
+            $pagination->where("modal","like","%$request->modalt%");
 
-        if (isset($request->publish_date) && $request->publish_date != "")
-            $pagination->whereDate("publish_date",$request->publish_date);
+        if (isset($request->rent_date) && $request->rent_date != "")
+            $pagination->whereDate("rent_date",$request->rent_date);
 
         #$pagination->dd();
         #$pagination->dump();

@@ -16,12 +16,12 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string("subject",250);
-            $table->string("subject2",250);
-            $table->date("publish_date");
+            $table->string("cont",250);
+            $table->string("address",250);
+            $table->string("model",250);
+            $table->string("manuf",250);
+            $table->date("rent_date");
             $table->string("image",500);
-            $table->string("slug",250);
-            $table->text("text");
             $table->foreignId("user_id")->constrained();
             $table->softDeletes();
         });

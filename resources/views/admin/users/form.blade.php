@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Rental Cars') }}</div>
+                <div class="card-header text-center">{{ __('Rental Cars') }}</div>
 
                 <div class="card-body">
 
@@ -60,18 +60,33 @@
                             </div>
                         </div>
 
-
-                        <ol class="list-group list-group-flush">
-                                <li class="list-group-item list-group-item-dark text-center" style="font-weight: bold;">    
-                                     Carro &emsp; &emsp; &emsp; | &emsp; &emsp; &emsp; Data do Aluguel
-                                </li>
-                            @foreach ($posts as $post)
-                                <li class="list-group-item">
-                                    <a class="list-group-item list-group-item-action text-center" href='{{route('post.edit',$post)}}'>
-                                    {{ $post->subject }} &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; {{ $post->publish_date->format('d-m-Y') }}</a>
-                                </li>
+                        <table class="table table-striped table-hover text-center">
+                            <thead>
+                              <tr>
+                                <th scope="col">{{ __('Contractor') }}</th>
+                                <th scope="col">{{ __('Car') }}</th>
+                                <th scope="col">{{ __('Rent date') }}</th>
+                              </tr>
+                            </thead>
+                                @foreach ($posts as $post)
+                                <tbody style="color: rgb(0, 0, 0)">
+                                <tr>
+                                <th scope="row">
+                                    <a style="display: block; height: 100%; width: 100%; text-decoration: none; color: rgb(0, 0, 0); border: 0;" 
+                                    href='{{route('post.edit',$post)}}'>{{ $post->cont }}</a>
+                                </th>
+                                <td>
+                                    <a style="display: block; height: 100%; width: 100%; text-decoration: none; color: gray; border: 0;" 
+                                    href='{{route('post.edit',$post)}}'>{{ $post->model }} </a>     
+                                </td>
+                                <td>
+                                    <a style="display: block; height: 100%; width: 100%; text-decoration: none; color: gray; border: 0;" 
+                                    href='{{route('post.edit',$post)}}'>{{ $post->rent_date->format('d-m-Y') }} </a>     
+                                </td>
+                                </tr>    
+                                </tbody>
                             @endforeach
-                        </ol>
+                        </table>   
 
                         {{ $posts->links() }}
                             

@@ -5,14 +5,14 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Posts') }}</div>
+                <div class="card-header text-center">{{ __('Control Panel') }}</div>
 
                 <div class="card-body">
                     <form method="GET" action="{{ route('post.list') }}">
                         @csrf
 
                         <div class="row mb-3">
-                            <label for="busca" class="col-md-4 col-form-label text-md-end">{{ __('Search') }}</label>
+                            <label for="busca" class="col-md-4 col-form-label text-md-end">{{ __('Contractor') }}</label>
                             <div class="col-md-6">
                                 <input id="busca" type="text" class="form-control" 
                                          name="busca" value="{{ old('busca') }}" 
@@ -22,17 +22,17 @@
 
 
                         <div class="row mb-3">
-                            <label for="subject" class="col-md-4 col-form-label text-md-end">{{ __('Subject') }}</label>
+                            <label for="manuf" class="col-md-4 col-form-label text-md-end">{{ __('Manufacturer') }}</label>
                             <div class="col-md-6">
-                                <input id="subject" type="text" class="form-control" 
-                                         name="subject" value="{{ old('subject') }}" 
+                                <input id="manuf" type="text" class="form-control" 
+                                         name="manuf" value="{{ old('manuf') }}" 
                                          autofocus>
                             </div>
                         </div>
 
                         
                         <div class="row mb-3">
-                            <label for="text" class="col-md-4 col-form-label text-md-end">{{ __('Text') }}</label>
+                            <label for="text" class="col-md-4 col-form-label text-md-end">{{ __('Model') }}</label>
                             <div class="col-md-6">
                                 <input id="text" type="text" class="form-control" 
                                          name="text" value="{{ old('text') }}" 
@@ -41,10 +41,10 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="publish_date" class="col-md-4 col-form-label text-md-end">{{ __('Publish date') }}</label>
+                            <label for="rent_date" class="col-md-4 col-form-label text-md-end">{{ __('Rent date') }}</label>
                             <div class="col-md-6">
-                                <input id="publish_date" type="date" class="form-control" 
-                                         name="publish_date" value="{{ old('publish_date') }}" 
+                                <input id="rent_date" type="date" class="form-control" 
+                                         name="rent_date" value="{{ old('rent_date') }}" 
                                          autofocus>
                             </div>
                         </div>
@@ -57,7 +57,7 @@
                                 </button>
 
                                 <a class='btn btn-secondary' href="{{route('post.create')}}">
-                                    {{__('New post')}}
+                                    {{__('New rent')}}
                                 </a>
                                 
                             </div>
@@ -68,11 +68,12 @@
                     <table class="table">
                         <thead>
                           <tr>
-                            <th scope="col">{{__("Edit")}}</th>
-                            <th scope="col">{{__("Subject")}}</th>
-                            <th scope="col">{{__("Slug")}}</th>
-                            <th scope="col">{{__("Owner")}}</th>
-                            <th scope="col">{{__("Delete")}}</th>
+                            <th scope="col"></th>
+                            <th scope="col">{{__("Model")}}</th>
+                            <th scope="col">{{__("Manufacturer")}}</th>
+                            <th scope="col">{{__("Contractor")}}</th>
+                            <th scope="col">{{__("Rent date")}}</th>
+                            <th scope="col"></th>
                           </tr>
                         </thead>
                         <tbody>
@@ -83,15 +84,16 @@
                                             {{ __('Edit') }}
                                         </a>
                                     </td>
-                                    <td>{{$item->subject}}</td>    
-                                    <td>{{$item->slug}}</td>    
-                                    <td>{{$item->user->name}}</td>    
+                                    <td>{{$item->model}}</td>    
+                                    <td>{{$item->manuf}}</td>    
+                                    <td>{{$item->cont}}</td>
+                                    <td>{{$item->rent_date->format("d-m-Y")}}</td>    
                                     <td>
                                         <form action="{{route('post.destroy',$item)}}" method="post">
                                             @csrf
                                             @method("DELETE")
                                             <button class="btn btn-danger" type="button" onclick="confirmDeleteModal(this)"  >
-                                                {{ __('Delete') }}
+                                                {{ __('Close') }}
                                             </button>
                                         </form>
                                     </td>

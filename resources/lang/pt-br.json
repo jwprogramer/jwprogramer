@@ -16,7 +16,7 @@
     "Save":"Salvar",
     "Post":"Postagem",
     "Posts":"Postagens",
-    "New post":"Nova Postagem",
+    "New rent":"Novo Aluguel",
     "Publish date":"Data de publicação",
     "Text":"Texto",
     "Image":"Imagem",
@@ -51,8 +51,17 @@
     "Confirm Password": "Confirmar Senha",
     "Rental Cars":"Carros Alugados",
     "Rent":"Alugar",
+    "Control Panel": "Painel de Controle", 
     "Logout": "Sair",
-    "To view": "Visualizar"
+    "To view": "Visualizar",
+    "Manufacturer": "Fabricante",
+    "Model": "Modelo",
+    "Rent date": "Data do Aluguel",
+    "Contractor": "Contratante",
+    "Close": "Encerrar",
+    "Address": "Endereço",
+    "Vehicle photo": "Foto do Veículo",
+    "Car": "Modelo do Carro"
 }
    
 
