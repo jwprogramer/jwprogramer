@@ -106,16 +106,17 @@ return [
     'url' => 'O campo :attribute tem um formato inválido.',
     'uuid' => 'O campo :attribute deve ser um UUID válido.',
 
-    'custom' => [
-        /*'name' => [
-            'required' => 'a mensagem padronizada será essa',
-        ],*/
-    ],
-
+  
     'attributes' => [
         'name'=>"nome",
         'phone'=>"telefone",
         'subject'=>"assunto",
         'message'=>"mensagem",
+        'rent_date'=>"Data do Aluguel",
+        'model' => "Modelo",
+        'address' => "Endereço",
+        'cont' => "Contratante",
+        'image' =>"Foto do Veículo",
+        'manuf' =>"Fabricante"
     ],
 ];
