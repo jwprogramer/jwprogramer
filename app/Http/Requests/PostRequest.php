@@ -27,7 +27,6 @@ class PostRequest extends FormRequest
             'cont' => 'required|max:500',
             'address' => 'required|max:500',
             'model' => 'required|max:500',
-            'manuf' => 'required|max:500',
             'rent_date' => 'required|date'
         ];
 
@@ -38,6 +37,11 @@ class PostRequest extends FormRequest
         if ($this->method() == "PUT"){
             $rules['image'] = 'image|max:1024';
         }
+
+        if ($_POST["manuf"] == ""){
+            $rules['manuf'] = 'required|manuf|max:50'; 
+        } 
+
 
         return $rules;
     }

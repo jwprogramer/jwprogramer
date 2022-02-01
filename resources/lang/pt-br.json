@@ -61,7 +61,10 @@
     "Close": "Encerrar",
     "Address": "Endereço",
     "Vehicle photo": "Foto do Veículo",
-    "Car": "Modelo do Carro"
+    "Car": "Modelo do Carro",
+    "Data updated!": "Cadastro atualizado!",
+    "Data saved!": "Aluguel Contratado com sucesso!",
+    "Data deleted!": "Aluguel finalizado!"
 }
    
 

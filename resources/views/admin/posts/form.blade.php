@@ -85,7 +85,8 @@
                             </label>
 
                             <div class="col-md-6">
-                                <select id="manuf" name="manuf" class="form-select" aria-label="Default select example @error('manuf') is-invalid @enderror">
+                                <select id="manuf" name="manuf" class="form-select @error('manuf') is-invalid @enderror" aria-label="Default select 
+                                example">
                                     <option value="">Selecione uma Opção</option>
                                     <option {{ ($data->manuf) == 'Chevrolet' ? 'selected' : '' }} value="Chevrolet">Chevrolet</option>
                                     <option {{ ($data->manuf) == 'Fiat' ? 'selected' : '' }} value="Fiat">Fiat</option>
@@ -93,11 +94,7 @@
                                     <option {{ ($data->manuf) == 'Hyundai' ? 'selected' : '' }} value="Hyundai">Hyundai</option>
                                     <option {{ ($data->manuf) == 'Volkswagen' ? 'selected' : '' }} value="Volkswagen">Volkswagen</option>
                                 </select>
-                                {{--<input id="manuf" type="text" 
-                                    class="form-control @error('manuf') is-invalid @enderror" 
-                                    name="manuf" value="{{ old('manuf', $data->manuf) }}"  
-                                    autofocus>--}}
-
+                    
                                 @error('manuf')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

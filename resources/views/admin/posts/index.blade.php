@@ -32,10 +32,10 @@
 
                         
                         <div class="row mb-3">
-                            <label for="text" class="col-md-4 col-form-label text-md-end">{{ __('Model') }}</label>
+                            <label for="model" class="col-md-4 col-form-label text-md-end">{{ __('Model') }}</label>
                             <div class="col-md-6">
-                                <input id="text" type="text" class="form-control" 
-                                         name="text" value="{{ old('text') }}" 
+                                <input id="model" type="text" class="form-control" 
+                                         name="model" value="{{ old('model') }}" 
                                          autofocus>
                             </div>
                         </div>

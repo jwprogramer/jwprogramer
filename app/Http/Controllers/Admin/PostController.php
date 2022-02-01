@@ -22,14 +22,15 @@ class PostController extends Controller
         if (isset($request->cont) && $request->cont != "")
             $pagination->where("cont","like","%$request->cont%");
 
-        if (isset($request->modal) && $request->modal != "")
-            $pagination->where("modal","like","%$request->modalt%");
+        if (isset($request->model) && $request->model != "")
+            $pagination->where("model","like","%$request->model%");
+
+        if (isset($request->manuf) && $request->manuf != "")
+            $pagination->where("manuf","like","%$request->manuf%");
 
         if (isset($request->rent_date) && $request->rent_date != "")
             $pagination->whereDate("rent_date",$request->rent_date);
 
-        #$pagination->dd();
-        #$pagination->dump();
         return view("admin.posts.index", ["list"=>$pagination->paginate(3)]);
     }
 
