@@ -87,12 +87,12 @@
                             <div class="col-md-6">
                                 <select id="manuf" name="manuf" class="form-select @error('manuf') is-invalid @enderror" aria-label="Default select 
                                 example">
-                                    <option value="">Selecione uma Opção</option>
+                                    <option value="">{{__('Select one option')}}</option>
                                     <option {{ ($data->manuf) == 'Chevrolet' ? 'selected' : '' }} value="Chevrolet">Chevrolet</option>
                                     <option {{ ($data->manuf) == 'Fiat' ? 'selected' : '' }} value="Fiat">Fiat</option>
                                     <option {{ ($data->manuf) == 'Toyota' ? 'selected' : '' }} value="Toyota">Toyota</option>
                                     <option {{ ($data->manuf) == 'Hyundai' ? 'selected' : '' }} value="Hyundai">Hyundai</option>
-                                    <option {{ ($data->manuf) == 'Volkswagen' ? 'selected' : '' }} value="Volkswagen">Volkswagen</option>
+                                    <option {{ ($data->manuf) == 'Volkswagen' ? 'selected' : ''}} value="Volkswagen">Volkswagen</option>
                                 </select>
                     
                                 @error('manuf')
