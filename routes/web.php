@@ -42,10 +42,6 @@ Route::middleware(['auth'])->group(function () {
 
 
     Route::get('/user/list', [UserController::class,"list"])->name('user.list');
-    #Route::get('/user', [PostController::class,"create"])->name('user.create');
-    #Route::post('/user', [PostController::class,"store"])->name('user.store');
     Route::get('/user/{user}', [UserController::class,"edit"])->name('user.edit');
-    #Route::put("/user/{user}", [PostController::class,"update"])->name('user.update');
-    #Route::delete('/user/{user}', [PostController::class,"destroy"])->name('user.destroy');
-
+   
 });

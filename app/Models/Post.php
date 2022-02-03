@@ -25,23 +25,6 @@ class Post extends Model
         "rent_date"
     ];
     
-    #mutator
-    /*public function setContAttribute($cont){
-        #$this->attributes["cont"] = $cont;
-
-        #if ($this->slug != "")
-           # return;#evitar que seja alterado
-
-        $post = Post::withTrashed()
-                        ->orderByDesc("id")
-                        ->firstWhere("model",Str::model($cont));
-        $id = "";
-        if ($post){
-            $id = "_".($post->id + 1);
-        }
-    
-        $this->attributes["model"] = Str::model($cont).$id;
-    }*/
 
     public function user(){
         return $this->belongsTo(User::class);
