@@ -65,6 +65,10 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('user.list') }}">{{ __('Rental Cars') }}</a>
                             </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('manuf.list') }}">{{ __('Manufacturers') }}</a>
+                            </li>
                                 
 
                             <li class="nav-item dropdown">

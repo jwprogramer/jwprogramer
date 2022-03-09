@@ -18,7 +18,6 @@
                     @endif
 
                         @csrf
-                              
                         
                         <div class="row mb-3">
                             <label for="cont" class="col-md-4 col-form-label text-md-end">
@@ -88,13 +87,31 @@
                                 <select id="manuf" name="manuf" class="form-select @error('manuf') is-invalid @enderror" aria-label="Default select 
                                 example">
                                     <option value="">{{__('Select one option')}}</option>
-                                    <option {{ ($data->manuf) == 'Chevrolet' ? 'selected' : '' }} value="Chevrolet">Chevrolet</option>
-                                    <option {{ ($data->manuf) == 'Fiat' ? 'selected' : '' }} value="Fiat">Fiat</option>
-                                    <option {{ ($data->manuf) == 'Toyota' ? 'selected' : '' }} value="Toyota">Toyota</option>
-                                    <option {{ ($data->manuf) == 'Hyundai' ? 'selected' : '' }} value="Hyundai">Hyundai</option>
-                                    <option {{ ($data->manuf) == 'Volkswagen' ? 'selected' : ''}} value="Volkswagen">Volkswagen</option>
+                                    @foreach($manuf_rents as $inf)
+                                
+                                    <option value='{{$inf->id}}'
+                                        @if (old('manuf_id',$data->manuf_id) == $inf->id)
+                                            selected
+                                        @endif
+                                        >{{$inf->name}}</option>
+                                @endforeach
                                 </select>
                     
+
+
+                                @if($data->exists)
+                                <ol>
+                                @foreach ($categories as $cat)
+                                    <li>
+                                        <a href='{{route('manuf.edit',$cat)}}'>{{ $cat->name }}</a>
+                                        <a href="{{route('manuf.desvincular',$cat->category_posts_id)}}">X</a>
+                                    </li>
+                                @endforeach
+                                </ol>
+                                {{ $categories->links() }}
+                                @endif
+
+
                                 @error('manuf')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

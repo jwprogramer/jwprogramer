@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ManufController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\Admin\PostController;
@@ -39,9 +40,22 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/post/{post}', [PostController::class,"edit"])->name('post.edit');
     Route::put("/post/{post}", [PostController::class,"update"])->name('post.update');
     Route::delete('/post/{post}', [PostController::class,"destroy"])->name('post.destroy');
+   
+});
+
+
+Route::middleware(['auth','can:admin-access'])->group(function () {
+    Route::get('/manuf/list', [ManufController::class,"list"])->name('manuf.list');
+    Route::get('/manuf', [ManufController::class,"create"])->name('manuf.create');
+    Route::post('/manuf', [ManufController::class,"store"])->name('manuf.store');
+    Route::get('/manuf/{manuf}', [ManufController::class,"edit"])->name('manuf.edit');
+    Route::put("/manuf/{manuf}", [ManufController::class,"update"])->name('manuf.update');
+    Route::delete('/manuf/{manuf}', [ManufController::class,"destroy"])->name('manuf.destroy');
+    Route::get('/manuf/desvincular/{manuf_post}', [ManufController::class,"desvincular"])->name('manuf.desvincular');
+
 
 
     Route::get('/user/list', [UserController::class,"list"])->name('user.list');
     Route::get('/user/{user}', [UserController::class,"edit"])->name('user.edit');
-   
+
 });
