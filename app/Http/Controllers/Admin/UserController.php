@@ -21,49 +21,39 @@ class UserController extends Controller
     /*public function create(){
         return view("admin.users.form", ["data"=>new User()] );
     }
-
-    public function store(UserRequest $request){
-        $validated = $request->validated();
-
-        $path = $request->file('image')->store('users',"public");
+    */
+    public function store(Request $request){
 
         $data = $request->all();
-        $data["image"] = $path;
-        $data["user_id"] = Auth::user()->id;
 
         $user = User::create($data);
-        return redirect(route("user.edit", $user))->with("success",__("Data saved!"));
+        return redirect(route("/dashboard"))->with("success",__("Data saved!"));
     }
 
-    public function destroy(User $user){
-        $user->delete();
-        return redirect(route("user.list"))->with("success",__("Data deleted!"));
-    }*/
-
-
-    #abre o formulario de edição
     public function edit(User $user){
 
         $posts = Post::where("user_id",$user->id)->paginate(5);
+        $list = User::all();
 
         return view("admin.users.form",["data"=>$user, 
-                                        "posts"=>$posts]);
+                                        "posts"=>$posts,
+                                        "list" =>$list]);
     }
 
-    #salva as edições
-    /*public function update(User $user, UserRequest $request) {
-        $validated = $request->validated();
+    public function update(User $user, Request $request) {
 
         $data = $request->all();
-        #necessário, pois não é obrigatório atualizar a imagem
-        if ($request->file('image') != null){
-            $path = $request->file('image')->store('users',"public");
-            $data["image"] = $path;
-        }
 
+      
         $user->update($data);
-        return redirect()->back()->with("success",__("Data updated!"));
-    }*/
+
+
+        User::updateOrCreate(["level"=>$user->$_POST['']]);
+
+
+        
+        return redirect(route("/dashboard"))->with("success",__("Data updated!"));
+    }
 
     
 

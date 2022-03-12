@@ -77,6 +77,8 @@
                           </tr>
                         </thead>
                         <tbody>
+
+                           
                             @foreach ($list as $item)
                                 <tr>
                                     <td>
@@ -84,12 +86,16 @@
                                             {{ __('Edit') }}
                                         </a>
                                     </td>
-                                    <td>{{$item->model}}</td>    
-                                    <td>{{$item->manuf}}</td>    
+                                    <td>{{$item->model}}</td>
+                                    @foreach ($manuf_rents as $inf)
+                                        @if ($item['manuf_id'] == $inf['id'])
+                                        <td>{{$inf->name}}</td>  
+                                        @endif
+                                    @endforeach
                                     <td>{{$item->cont}}</td>
                                     <td>{{$item->rent_date->format("d-m-Y")}}</td>    
                                     <td>
-                                        <form action="{{route('post.destroy',$item)}}" method="post">
+                                        <form action="{{route('post.destroy',$item)}}" method="POST">
                                             @csrf
                                             @method("DELETE")
                                             <button class="btn btn-danger" type="button" onclick="confirmDeleteModal(this)"  >
@@ -98,8 +104,8 @@
                                         </form>
                                     </td>
                                 </tr>
+                                
                             @endforeach
-
                         </tbody>
                       </table>
 

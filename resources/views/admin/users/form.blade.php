@@ -11,9 +11,9 @@
 
 
                     @if ($data->id == "")
-                        <form id="main" method="POST" action="{{-- route('user.store') --}}" enctype="multipart/form-data">
+                        <form id="main" method="POST" action="{{route('user.store') }}" enctype="multipart/form-data">
                     @else
-                        <form id="main" method="POST" action="{{-- route('user.update',$data) --}}" enctype="multipart/form-data">
+                        <form id="main" method="POST" action="{{route('user.update', $data)}}" enctype="multipart/form-data">
                         @method('PUT')
                     @endif
 
@@ -59,6 +59,50 @@
                                 @enderror
                             </div>
                         </div>
+
+                        <div class="row mb-3">
+                            <label for="level" class="col-md-4 col-form-label text-md-end">
+                                {{ __('Level') }}
+                            </label>
+                            <div class="col-md-6">
+                                <select id="level" name="level" class="form-select @error('level') is-invalid @enderror" aria-label="Default select 
+                                example">
+
+                                    <?php
+                                    $default = 0; 
+                                    $adm = 10;    
+                                    ?>
+                                    
+                                    @foreach ( $list as $inf )
+                                    <option value='{{$adm}}'
+                                        @if ($inf->level == 10)
+                                            selected
+                                        @endif
+                                        >ADMINISTRADOR</option>
+                                    <option value='{{$default}}'
+                                        @if ($inf->level == 0)
+                                                selected
+                                        @endif
+                                        >PADRÃO</option>
+                                    @endforeach
+                                </select>
+
+                                @error('level')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                               
+                            </div>
+                            <div class="col-md-1">
+                                <button type="submit" class="btn btn-primary" form="main">
+                                    {{ __('Save') }}
+                                </button>
+                            </div>
+                        </div>
+                        
+
+
 
                         <table class="table table-striped table-hover text-center">
                             <thead>

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 
@@ -15,10 +16,10 @@ class Post extends Model
         "cont",
         "address",
         "model",
-        "manuf",        
         "rent_date",
         "image",
-        "user_id"
+        "user_id",
+        "manuf_id"
     ];
 
     protected $dates = [
@@ -30,6 +31,9 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
     
+    public function manuf(){
+        return $this->belongsTo(Manuf::class);
+    }
     
 
     

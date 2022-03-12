@@ -19,10 +19,10 @@ class CreatePostsTable extends Migration
             $table->string("cont",250);
             $table->string("address",250);
             $table->string("model",250);
-            $table->string("manuf",250);
             $table->date("rent_date");
             $table->string("image",500);
             $table->foreignId("user_id")->constrained();
+            $table->foreignId("manuf_id")->constrained();
             $table->softDeletes();
         });
     }

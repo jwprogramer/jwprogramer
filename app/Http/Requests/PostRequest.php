@@ -27,21 +27,16 @@ class PostRequest extends FormRequest
             'cont' => 'required|max:500',
             'address' => 'required|max:500',
             'model' => 'required|max:500',
-            'rent_date' => 'required|date'
+            'rent_date' => 'required|date',
+            'manuf_id' => 'exclude_if:manuf_id,null|exists:manufs,id',
         ];
 
-        #somente obrigatório quando for um novo
         if ($this->method() == "POST"){
             $rules['image'] = 'required|image|max:1024';
         } else
         if ($this->method() == "PUT"){
             $rules['image'] = 'image|max:1024';
         }
-
-        if ($_POST["manuf"] == ""){
-            $rules['manuf'] = 'required|manuf|max:50'; 
-        } 
-
 
         return $rules;
     }

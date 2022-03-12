@@ -67,7 +67,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('manuf.list') }}">{{ __('Manufacturers') }}</a>
+                                <a class="nav-link" href="{{ route('manufs.list') }}">{{ __('Manufacturers') }}</a>
                             </li>
                                 
 

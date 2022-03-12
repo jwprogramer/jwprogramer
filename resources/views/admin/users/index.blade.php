@@ -50,7 +50,7 @@
                                     </td>
                                     <td>{{$item->name}}</td>    
                                     <td>{{$item->email}}</td>    
-                                    <td>{{$item->posts->count()}}</td>    
+                                    <td>{{$item->posts->count()}}</td>     
                                 </tr>
                             @endforeach
 

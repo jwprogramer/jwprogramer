@@ -11,12 +11,8 @@ class Manuf extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ["name"];
+    protected $fillable = ["name", "post_id"];
     
-
-    public function posts(){
-        return $this->belongsToMany(Post::class, "manuf_posts");
-    }
 
     public function user(){
         return $this->belongsTo(User::class);

@@ -17,6 +17,7 @@ class PostController extends Controller
     public function list(Request $request){
         Gate::authorize('viewAny', Post::class);
         $pagination = Post::orderBy("cont");
+        $manuf_rents = Manuf::all();
 
         if (isset($request->busca) && $request->busca != "") {
             $pagination->orWhere("cont","like","%$request->busca%");
@@ -35,7 +36,7 @@ class PostController extends Controller
         if (isset($request->rent_date) && $request->rent_date != "")
             $pagination->whereDate("rent_date",$request->rent_date);
 
-        return view("admin.posts.index", ["list"=>$pagination->paginate(3)]);
+        return view("admin.posts.index", ["list"=>$pagination->paginate(3), "manuf_rents"=>$manuf_rents]);
     }
 
     public function create(){
@@ -70,9 +71,9 @@ class PostController extends Controller
         Gate::authorize('view', $post);
         $manuf_rents = Manuf::all();
 
-        $infos = Manuf::select("manufs.*", "manuf_posts.id as manuf_posts_id")
-        ->join("manuf_posts","manuf_posts.manuf_id","=","manufs.id")
-        ->where("post_id",$post->id)->paginate(2);
+        $infos = Manuf::select("manufs.*", "manuf_rents.id as manuf_rents_id")
+        ->join("manuf_rents","manuf_rents.manuf_id","=","manufs.id")
+        ->where("manufs_id",$post->id)->paginate(2);
 
 
 
@@ -86,7 +87,7 @@ class PostController extends Controller
         $validated = $request->validated();
 
         $data = $request->all();
-        #necessário, pois não é obrigatório atualizar a imagem
+       
         if ($request->file('image') != null){
             $path = $request->file('image')->store('posts',"public");
             $data["image"] = $path;

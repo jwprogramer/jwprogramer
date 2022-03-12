@@ -11,9 +11,9 @@
 
 
                     @if ($data->id == "")
-                        <form id="main" method="POST" action="{{ route('manuf.store') }}" enctype="multipart/form-data">
+                        <form id="main" method="POST" action="{{ route('manufs.store') }}" enctype="multipart/form-data">
                     @else
-                        <form id="main" method="POST" action="{{ route('manuf.update',$data) }}" enctype="multipart/form-data">
+                        <form id="main" method="POST" action="{{ route('manufs.update',$data) }}" enctype="multipart/form-data">
                         @method('PUT')
                     @endif
 
@@ -40,49 +40,8 @@
                             </div>
                         </div>
 
-
-                    
-                    <div class="row mb-3">
-                        <label for="name" class="col-md-4 col-form-label text-md-end">
-                            {{ __('Post') }}
-                        </label>
-
-                            <div class="col-md-6">
-                        <select class="form-select @error('post_id') is-invalid @enderror"
-                                id="post_id"
-                                name="post_id" >
-                                <option value=''>{{__("Select one option")}}</option>
-                            @foreach($postsList as $post)
-                            
-                                <option value='{{$post->id}}'
-                                    @if (old('post_id',$data->post_id) == $post->id)
-                                        selected
-                                    @endif
-                                    >{{$post->subject}}</option>
-                            @endforeach
-                        </select>
-                        @error('post_id')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                        </div>
-                    </div>
-
                     
                     </form>
-
-                    @if($data->exists)
-                        <ol>
-                        @foreach ($posts as $post)
-                        <li>
-                            <a href='{{route('post.edit',$post)}}'>{{ $post->subject }}</a>
-                            <a href="{{route('category.desvincular',$post->category_posts_id)}}">X</a>
-                        </li>
-                        @endforeach
-                        </ol>
-                        {{ $posts->links() }}
-                    @endif
 
 
                         <div class="row mb-0">
@@ -91,14 +50,14 @@
                                     {{ __('Save') }}
                                 </button>
 
-                                <a class='btn btn-secondary' href="{{route('category.create')}}">
-                                    {{__('New category')}}
+                                <a class='btn btn-secondary' href="{{route('manufs.create')}}">
+                                    {{__('New Manufacturer')}}
                                 </a>
 
 
                                                                 
                                 @if ($data->id != "")
-                                <form name='delete' action="{{route('category.destroy',$data)}}"
+                                <form name='delete' action="{{route('manufs.destroy',$data)}}"
                                     method="POST"
                                     style='display: inline-block;'
                                     >

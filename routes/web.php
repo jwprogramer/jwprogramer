@@ -45,17 +45,17 @@ Route::middleware(['auth'])->group(function () {
 
 
 Route::middleware(['auth','can:admin-access'])->group(function () {
-    Route::get('/manuf/list', [ManufController::class,"list"])->name('manuf.list');
-    Route::get('/manuf', [ManufController::class,"create"])->name('manuf.create');
-    Route::post('/manuf', [ManufController::class,"store"])->name('manuf.store');
-    Route::get('/manuf/{manuf}', [ManufController::class,"edit"])->name('manuf.edit');
-    Route::put("/manuf/{manuf}", [ManufController::class,"update"])->name('manuf.update');
-    Route::delete('/manuf/{manuf}', [ManufController::class,"destroy"])->name('manuf.destroy');
-    Route::get('/manuf/desvincular/{manuf_post}', [ManufController::class,"desvincular"])->name('manuf.desvincular');
+    Route::get('/manufs/list', [ManufController::class,"list"])->name('manufs.list');
+    Route::get('/manufs', [ManufController::class,"create"])->name('manufs.create');
+    Route::post('/manufs', [ManufController::class,"store"])->name('manufs.store');
+    Route::get('/manufs/{manuf}', [ManufController::class,"edit"])->name('manufs.edit');
+    Route::put("/manufs/{manuf}", [ManufController::class,"update"])->name('manufs.update');
+    Route::delete('/manufs/{manuf}', [ManufController::class,"destroy"])->name('manufs.destroy');
 
 
 
     Route::get('/user/list', [UserController::class,"list"])->name('user.list');
     Route::get('/user/{user}', [UserController::class,"edit"])->name('user.edit');
-
+    Route::post('/user', [UserController::class,"store"])->name('user.store');
+    Route::put("/user/{user}", [UserController::class,"update"])->name('user.update');
 });

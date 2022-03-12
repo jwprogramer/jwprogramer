@@ -79,12 +79,12 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="manuf" class="col-md-4 col-form-label text-md-end">
+                            <label for="manuf_id" class="col-md-4 col-form-label text-md-end">
                                 {{ __('Manufacturer') }}
                             </label>
 
                             <div class="col-md-6">
-                                <select id="manuf" name="manuf" class="form-select @error('manuf') is-invalid @enderror" aria-label="Default select 
+                                <select id="manuf_id" name="manuf_id" class="form-select @error('manuf_id') is-invalid @enderror" aria-label="Default select 
                                 example">
                                     <option value="">{{__('Select one option')}}</option>
                                     @foreach($manuf_rents as $inf)
@@ -96,23 +96,8 @@
                                         >{{$inf->name}}</option>
                                 @endforeach
                                 </select>
-                    
 
-
-                                @if($data->exists)
-                                <ol>
-                                @foreach ($categories as $cat)
-                                    <li>
-                                        <a href='{{route('manuf.edit',$cat)}}'>{{ $cat->name }}</a>
-                                        <a href="{{route('manuf.desvincular',$cat->category_posts_id)}}">X</a>
-                                    </li>
-                                @endforeach
-                                </ol>
-                                {{ $categories->links() }}
-                                @endif
-
-
-                                @error('manuf')
+                                @error('manuf_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

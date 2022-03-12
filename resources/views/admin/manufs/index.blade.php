@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Manufacturer') }}</div>
 
                 <div class="card-body">
-                    <form method="GET" action="{{ route('manuf.list') }}">
+                    <form method="GET" action="{{ route('manufs.list') }}">
                         @csrf
 
                         <div class="row mb-3">
@@ -26,8 +26,8 @@
                                     {{ __('Search') }}
                                 </button>
 
-                                <a class='btn btn-secondary' href="{{route('category.create')}}">
-                                    {{__('New category')}}
+                                <a class='btn btn-secondary' href="{{route('manufs.create')}}">
+                                    {{__('New Manufacturer')}}
                                 </a>
                                 
                             </div>
@@ -40,7 +40,6 @@
                           <tr>
                             <th scope="col">{{__("Edit")}}</th>
                             <th scope="col">{{__("Name")}}</th>
-                            <th scope="col">{{__("Posts qtd.")}}</th>
                             <th scope="col">{{__("Delete")}}</th>
                           </tr>
                         </thead>
@@ -48,14 +47,13 @@
                             @foreach ($list as $item)
                                 <tr>
                                     <td>
-                                        <a href="{{route("manuf.edit",$item)}}" class="btn btn-primary">
+                                        <a href="{{route("manufs.edit", $item)}}" class="btn btn-primary">
                                             {{ __('Edit') }}
                                         </a>
                                     </td>
                                     <td>{{$item->name}}</td>  
-                                    <td>{{ $item->posts->count() }}</td>
                                     <td>
-                                        <form action="{{route('manuf.destroy',$item)}}" method="POST">
+                                        <form action="{{route('manufs.destroy', $item)}}" method="POST">
                                             @csrf
                                             @method("DELETE")
                                             <button class="btn btn-danger" type="button" onclick="confirmDeleteModal(this)"  >
