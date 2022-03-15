@@ -156,16 +156,17 @@
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
+                                @can('view',$data)
                                 <button type="submit" class="btn btn-primary" form="main">
                                     {{ __('Save') }}
                                 </button>
-
+                                @endcan
                                 <a class='btn btn-secondary' href="{{route('post.create')}}">
                                     {{__('New rent')}}
                                 </a>
 
 
-                                                                
+                                @can('view',$data)                                
                                 @if ($data->id != "")
                                 <form name='delete' action="{{route('post.destroy',$data)}}"
                                     method="post"
@@ -178,8 +179,7 @@
                                     </button>
                                 </form>
                                 @endif
-
-                                
+                                @endcan
                             </div>
                         </div>
                     

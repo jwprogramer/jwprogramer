@@ -68,7 +68,7 @@ class PostController extends Controller
 
     #abre o formulario de edição
     public function edit(Post $post){
-        Gate::authorize('view', $post);
+        Gate::authorize('viewAny', $post);
         $manuf_rents = Manuf::all();
 
         $infos = Manuf::select("manufs.*", "manuf_rents.id as manuf_rents_id")

@@ -62,14 +62,17 @@
                                 <a class="nav-link" href="{{ route('post.list') }}">{{ __('Rent') }}</a>
                             </li>
 
+                            @can('admin-access')
+
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('users.list') }}">{{ __('Rental Cars') }}</a>
                             </li>
-
+                           
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('manufs.list') }}">{{ __('Manufacturers') }}</a>
                             </li>
-                                
+
+                            @endcan    
 
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

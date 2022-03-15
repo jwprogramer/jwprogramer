@@ -15,7 +15,7 @@ class PostPolicy
     }
 
     public function view(User $user, Post $post){
-        return true;
+        return $user->level == User::DEFAULT_LEVEL && $user->id == $post->user_id || $user->level == User::ADMIN_LEVEL;
     }
 
     public function create(User $user){
@@ -44,6 +44,5 @@ class PostPolicy
     {
         return $user->level >= User::DEFAULT_LEVEL;
     }
-
 
 }

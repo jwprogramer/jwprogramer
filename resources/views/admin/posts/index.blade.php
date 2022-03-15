@@ -81,11 +81,13 @@
                            
                             @foreach ($list as $item)
                                 <tr>
+                               
                                     <td>
                                         <a href="{{route("post.edit",$item)}}" class="btn btn-primary">
                                             {{ __('Edit') }}
                                         </a>
                                     </td>
+                                   
                                     <td>{{$item->model}}</td>
                                     @foreach ($manuf_rents as $inf)
                                         @if ($item['manuf_id'] == $inf['id'])
@@ -94,6 +96,7 @@
                                     @endforeach
                                     <td>{{$item->cont}}</td>
                                     <td>{{$item->rent_date->format("d-m-Y")}}</td>    
+                                    @can('delete',$item)
                                     <td>
                                         <form action="{{route('post.destroy',$item)}}" method="POST">
                                             @csrf
@@ -103,6 +106,7 @@
                                             </button>
                                         </form>
                                     </td>
+                                    @endcan
                                 </tr>
                                 
                             @endforeach

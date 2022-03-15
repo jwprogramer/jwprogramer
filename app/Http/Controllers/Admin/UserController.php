@@ -40,7 +40,6 @@ class UserController extends Controller
     }
 
     public function update(User $user, UserRequest $request) {
-        //Gate::authorize('update', $user);
         $data = $request->level;
         
         $user->update($data);
