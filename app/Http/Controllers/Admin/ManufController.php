@@ -40,8 +40,8 @@ class ManufController extends Controller
         return redirect(route("manufs.edit", $manuf))->with("success",__("Data saved!"));
     }
 
-    public function destroy(Manuf $inf){
-        $inf->delete();
+    public function destroy(Manuf $manuf){
+        $manuf->delete();
         return redirect(route("manufs.list"))->with("success",__("Data deleted!"));
     }
 
@@ -55,19 +55,15 @@ class ManufController extends Controller
         
         return view("admin.manufs.form",["data"=>$manuf,
                                          "manufsList"=>$manufsList,
-                                         "manufs"=>$manufs
-                                         ]);
+                                         "manufs"=>$manufs]);
     }
 
-    public function update(Manuf $post, ManufRequest $request) {
-        //Gate::authorize('update', $inf);
+    public function update(Manuf $manuf, ManufRequest $request) {
+        //Gate::authorize('update', $manuf);
         $data = $request->all();
-        $post->update($data);
 
-        if ($request["manuf_id"]){
-            $inf = Manuf::find($request["manuf_id"]);
-            Manuf_rents::updateOrCreate(["post_id"=>$post->id,"manuf_id"=>$inf->id]);
-        }
+        $manuf->update($data);
+
 
         return redirect()->back()->with("success",__("Data updated!"));
     }

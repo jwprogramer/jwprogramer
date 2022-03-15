@@ -8,5 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ManufPost extends Model {
     use HasFactory;
 
-    protected $fillable = ['name','manuf_id'];
+    protected $fillable = ['name','post_id'];
+
 }
+

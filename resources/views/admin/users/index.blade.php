@@ -6,9 +6,9 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Rental Cars') }}</div>
-
+                
                 <div class="card-body">
-                    <form method="GET" action="{{ route('user.list') }}">
+                    <form method="GET" action="{{ route('users.list') }}">
                         @csrf
 
                         <div class="row mb-3">
@@ -44,7 +44,7 @@
                             @foreach ($list as $item)
                                 <tr>
                                     <td>
-                                        <a href="{{route("user.edit",$item)}}" class="btn btn-primary">
+                                        <a href="{{route("users.edit",$item)}}" class="btn btn-primary">
                                             {{ __('To view') }}
                                         </a>
                                     </td>

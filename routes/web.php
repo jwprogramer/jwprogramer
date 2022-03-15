@@ -54,8 +54,8 @@ Route::middleware(['auth','can:admin-access'])->group(function () {
 
 
 
-    Route::get('/user/list', [UserController::class,"list"])->name('user.list');
-    Route::get('/user/{user}', [UserController::class,"edit"])->name('user.edit');
-    Route::post('/user', [UserController::class,"store"])->name('user.store');
-    Route::put("/user/{user}", [UserController::class,"update"])->name('user.update');
+    Route::get('/users/list', [UserController::class,"list"])->name('users.list');
+    Route::get('/users/{user}', [UserController::class,"edit"])->name('users.edit');
+    Route::post('/users', [UserController::class,"store"])->name('users.store');
+    Route::put("/users/{user}", [UserController::class,"update"])->name('users.update');
 });

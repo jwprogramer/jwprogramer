@@ -9,4 +9,5 @@ class Manuf_rents extends Model {
     use HasFactory;
 
     protected $fillable = ['post_id','manuf_id'];
+    
 }

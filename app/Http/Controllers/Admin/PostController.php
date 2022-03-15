@@ -81,7 +81,7 @@ class PostController extends Controller
                                         "manufs"=>$infos]);
     }
 
-    #salva as edições
+
     public function update(Post $post, PostRequest $request) {
         Gate::authorize('update', $post);
         $validated = $request->validated();

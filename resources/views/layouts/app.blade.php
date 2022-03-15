@@ -63,7 +63,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('user.list') }}">{{ __('Rental Cars') }}</a>
+                                <a class="nav-link" href="{{ route('users.list') }}">{{ __('Rental Cars') }}</a>
                             </li>
 
                             <li class="nav-item">
