@@ -9,7 +9,6 @@
 
                 <div class="card-body">
 
-
                     @if ($data->id == "")
                         <form id="main" method="POST" action="{{ route('post.store') }}" enctype="multipart/form-data">
                     @else
@@ -156,7 +155,7 @@
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                @can('view',$data)
+                                @can('create',$data)
                                 <button type="submit" class="btn btn-primary" form="main">
                                     {{ __('Save') }}
                                 </button>

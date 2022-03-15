@@ -19,7 +19,7 @@ class PostPolicy
     }
 
     public function create(User $user){
-        return true;
+        return $user->level >= User::DEFAULT_LEVEL;
     }
 
     public function update(User $user, Post $post){
