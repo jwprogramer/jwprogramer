@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -18,6 +19,16 @@ class UserController extends Controller
         
        
         return view("admin.users.index", ["list"=>$pagination->paginate(3)]);
+    }
+
+    public function validator(array $data){
+        $rules = [
+            'name' => 'required|max:500',
+            'email' => 'required|max:500',
+            'level' => 'required|integer'
+        ];
+
+        return Validator::make($data, $rules)->validate();
     }
 
     public function store(UserRequest $request){
@@ -39,13 +50,13 @@ class UserController extends Controller
                                         "list" =>$list]);
     }
 
-    public function update(User $user, UserRequest $request) {
-        $data = $request->level;
-        
-        $user->update($data);
+    public function update(User $user, Request $request) {
+       
+        $validated = $this->validator($request->all());
+        $user->update($validated);
 
         
-        return redirect(route("home"))->with("success",__("Data updated!"));
+        return redirect()->back()->with("success",__("Data updated!"));
     }
 
 }
