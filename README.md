@@ -18,5 +18,5 @@ Sou um desenvolvedor em constante aprendizado, sempre buscando novas tecnologias
 
 ## Contato
 
-* **Email:** John Wendel da Silva Oliveira
+* **Email:** johnwendel.wendel@gmail.com
 * **LinkedIn:** https://www.linkedin.com/in/john-wendel-3350972a7/
